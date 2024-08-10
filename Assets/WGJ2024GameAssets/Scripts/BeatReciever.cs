@@ -12,23 +12,59 @@ public abstract class BeatReciever: MonoBehaviour
 
     private void OnEnable()
     {
-        BeatManager.OnBeat += OnBeatAction;
+        BeatManager.OnBeat += OnBeatEvent;
+        BeatManager.OnPreBeat += OnPreBeatEvent;
+        BeatManager.OnPostBeat += OnPostBeatEvent;
+        //LevelController.OnPauseEvent += OnPauseEventReceiver;
     }
 
     private void OnDisable()
     {
-        BeatManager.OnBeat -= OnBeatAction;
+        BeatManager.OnBeat -= OnBeatEvent;
+        BeatManager.OnPreBeat -= OnPreBeatEvent;
+        BeatManager.OnPostBeat -= OnPostBeatEvent;
+        //LevelController.OnPauseEvent -= OnPauseEventReceiver;
     }
-
-    private void OnBeatAction(BeatType type)
+    
+    //Event Reactions
+    private void OnPreBeatEvent(BeatType type)
+    {
+        if (type == myBeatType)
+        {
+            PreBeatAction();
+        }
+        
+    }
+    
+    private void OnBeatEvent(BeatType type)
     {
         if (type == myBeatType)
         {
             BeatAction();
         }
+        
     }
 
-    public void BeatAction()
+    private void OnPostBeatEvent(BeatType type)
+    {
+        if (type == myBeatType)
+        {
+            PostBeatAction();
+        }
+        
+    }
+
+    public virtual void PreBeatAction()
+    {
+        /// implement 
+    }
+
+    public virtual void BeatAction()
+    {
+        /// implement 
+    }
+    
+    public virtual void PostBeatAction()
     {
         /// implement 
     }

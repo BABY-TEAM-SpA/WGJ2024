@@ -12,13 +12,17 @@ public enum BeatType
     Redonda
 }
 
+[Serializable]
+public class SongsData
+{
+    public AudioClip song;
+    public int bpm;
+}
 
 public class BeatManager : MonoBehaviour
 {
     
-    
     public AudioSource _audioSource;
-
     public delegate void OnBeatEvent(BeatType type);
     public static event OnBeatEvent OnPreBeat;
     public static event OnBeatEvent OnBeat;
@@ -28,15 +32,13 @@ public class BeatManager : MonoBehaviour
     [Range(0f, 1f)] public float margen;
     public bool onMargen;
 
-    //public SongsDataSO songData {get; private set;}
-    //public DificultyOnSong currentDificulty{get; private set;}
-    //[SerializeField] private List<SongsDataSO> allSongs = new List<SongsDataSO>();
+    public SongsData songData {get; private set;}
+    [SerializeField] private List<SongsData> allSongs = new List<SongsData>();
 
     public float bpmDuration { get; private set; }
     private float timer;
     private int counter;
     private int totalcounter;
-    
     
     //auxiliares
     private bool canPre;
@@ -61,7 +63,6 @@ public class BeatManager : MonoBehaviour
     
     private void OnEnable()
     {
-        
         //LevelController.OnPauseEvent += OnPauseEventReceiver;
         //LevelController.OnPlayEvent += OnPlayingEventReceiver;
     }
@@ -208,17 +209,17 @@ public class BeatManager : MonoBehaviour
         canPre = false;
         canBeat = true;
         canPost = false;
-        //songData = GetRandomSong();
-        //_audioSource.clip = songData.song;
-        //bpmDuration = (60f / songData.bpm);
+        songData = GetRandomSong();
+        _audioSource.clip = songData.song;
+        bpmDuration = (60f / songData.bpm);
         timer = bpmDuration;
         _audioSource.Play();
     }
 
-    /*public SongsDataSO GetRandomSong()
+    public SongsData GetRandomSong()
     {
         return allSongs[Random.Range(0, allSongs.Count)];
-    }*/
+    }
 
 
     public void PauseSong()
