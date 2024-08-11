@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: piso
+    uniqueID: 2607577459
+    locked: 0
+  - name: Reloj
+    uniqueID: 2254586071
+    locked: 0
+  - name: maguita
+    uniqueID: 1499647343
+    locked: 0
+  - name: player
+    uniqueID: 3272258835
+    locked: 0
+  - name: rayos
+    uniqueID: 1746577209
+    locked: 0
