@@ -6,7 +6,6 @@ using Random = UnityEngine.Random;
 
 public enum BeatType
 {
-    Corchea,
     Negra,
     Blanca,
     Redonda
@@ -108,7 +107,6 @@ public class BeatManager : MonoBehaviour
         if (_audioSource.isPlaying)
         {
             float songTime = _audioSource.time;
-            
             if (songTime >= ((bpmDuration * counter) - bpmDuration * margen)&& canPre)
             {
                 canPre = false;
@@ -138,17 +136,13 @@ public class BeatManager : MonoBehaviour
         onMargen = true;
         if (OnPreBeat != null)
         {
-            OnPreBeat(BeatType.Corchea);
+            OnPreBeat(BeatType.Negra);
             if (counter%2==0)
             {
-                OnPreBeat(BeatType.Negra);
+                OnPreBeat(BeatType.Blanca);
                 if (counter%4==0)
                 {
-                    OnPreBeat(BeatType.Blanca);
-                    if (counter%8 == 0)
-                    {
-                        OnPreBeat(BeatType.Redonda);
-                    }
+                    OnPreBeat(BeatType.Redonda);
                 }
             }
             
@@ -160,17 +154,13 @@ public class BeatManager : MonoBehaviour
         
         if (OnBeat != null)
         {
-            OnBeat(BeatType.Corchea);
+            OnBeat(BeatType.Negra);
             if (counter%2==0)
             {
-                OnBeat(BeatType.Negra);
+                OnBeat(BeatType.Blanca);
                 if (counter%4==0)
                 {
-                    OnBeat(BeatType.Blanca);
-                    if (counter%8 == 0)
-                    {
-                        OnBeat(BeatType.Redonda);
-                    }
+                    OnBeat(BeatType.Redonda);
                 }
             }
             
@@ -184,20 +174,15 @@ public class BeatManager : MonoBehaviour
         counter += 1;
         if (OnPostBeat != null)
         {
-            OnPostBeat(BeatType.Corchea);
+            OnPostBeat(BeatType.Negra);
             if (counter%2==0)
             {
-                OnPostBeat(BeatType.Negra);
+                OnPostBeat(BeatType.Blanca);
                 if (counter%4==0)
                 {
-                    OnPostBeat(BeatType.Blanca);
-                    if (counter%8 == 0)
-                    {
-                        OnPostBeat(BeatType.Redonda);
-                    }
+                    OnPostBeat(BeatType.Redonda);
                 }
             }
-            
             
         }
         
@@ -205,13 +190,17 @@ public class BeatManager : MonoBehaviour
 
     public void PlaySong()
     {
+        
         onMargen = false;
         canPre = false;
         canBeat = true;
         canPost = false;
         songData = GetRandomSong();
+        timer =0; 
+        counter=0;
+        totalcounter=0;
         _audioSource.clip = songData.song;
-        bpmDuration = (60f / songData.bpm);
+        bpmDuration = (60f / songData.bpm); // negras por seg.... duracion de una negra...
         timer = bpmDuration;
         _audioSource.Play();
     }
@@ -220,7 +209,6 @@ public class BeatManager : MonoBehaviour
     {
         return allSongs[Random.Range(0, allSongs.Count)];
     }
-
 
     public void PauseSong()
     {
