@@ -12,6 +12,7 @@ public abstract class BeatReciever: MonoBehaviour
 
     private void OnEnable()
     {
+        BeatManager.OnHalfBeat += HalfBeatAction;
         BeatManager.OnBeat += OnBeatEvent;
         BeatManager.OnPreBeat += OnPreBeatEvent;
         BeatManager.OnPostBeat += OnPostBeatEvent;
@@ -20,6 +21,7 @@ public abstract class BeatReciever: MonoBehaviour
 
     private void OnDisable()
     {
+        BeatManager.OnHalfBeat -= HalfBeatAction;
         BeatManager.OnBeat -= OnBeatEvent;
         BeatManager.OnPreBeat -= OnPreBeatEvent;
         BeatManager.OnPostBeat -= OnPostBeatEvent;
@@ -68,4 +70,10 @@ public abstract class BeatReciever: MonoBehaviour
     {
         /// implement 
     }
+
+    public virtual void HalfBeatAction()
+    {
+        
+    }
+    
 }
