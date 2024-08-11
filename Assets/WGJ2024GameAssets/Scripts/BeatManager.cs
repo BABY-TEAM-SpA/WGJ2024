@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public enum BeatType
@@ -22,6 +23,9 @@ public class BeatManager : MonoBehaviour
 {
     
     public AudioSource _audioSource;
+    
+    public delegate void OnHalfBeatEvent();
+    public static event OnHalfBeatEvent OnHalfBeat;
     public delegate void OnBeatEvent(BeatType type);
     public static event OnBeatEvent OnPreBeat;
     public static event OnBeatEvent OnBeat;
@@ -40,6 +44,7 @@ public class BeatManager : MonoBehaviour
     private int totalcounter;
     
     //auxiliares
+    private bool canHalfBeat;
     private bool canPre;
     private bool canBeat;
     private bool canPost;
@@ -107,7 +112,15 @@ public class BeatManager : MonoBehaviour
         if (_audioSource.isPlaying)
         {
             float songTime = _audioSource.time;
-            if (songTime >= ((bpmDuration * counter) - bpmDuration * margen)&& canPre)
+            
+            if((songTime >= (bpmDuration * counter)-bpmDuration/2) && canHalfBeat)
+            {
+                canHalfBeat = false;
+                HalfBeat();
+                canPre = true;
+            }
+            
+            else if (songTime >= ((bpmDuration * counter) - bpmDuration * margen)&& canPre)
             {
                 canPre = false;
                 PreBeat();
@@ -117,6 +130,7 @@ public class BeatManager : MonoBehaviour
             {
                 canBeat = false;
                 timer = songTime;
+                HalfBeat();
                 Beat();
                 canPost = true;
             }
@@ -125,11 +139,18 @@ public class BeatManager : MonoBehaviour
             {
                 canPost = false;
                 PostBeat();
-                canPre = true;
+                canHalfBeat = true;
             }
         }
     }
 
+    void HalfBeat()
+    {
+        if (OnHalfBeat != null)
+        {
+            OnHalfBeat();
+        }
+    }
     
     void PreBeat()
     {
@@ -192,8 +213,10 @@ public class BeatManager : MonoBehaviour
     {
         
         onMargen = false;
+        
+        canHalfBeat = true;
         canPre = false;
-        canBeat = true;
+        canBeat = false;
         canPost = false;
         songData = GetRandomSong();
         timer =0; 
