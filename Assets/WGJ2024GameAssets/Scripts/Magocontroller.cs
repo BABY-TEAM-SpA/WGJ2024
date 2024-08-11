@@ -6,7 +6,15 @@ public class Magocontroller : BeatReciever
 {
     
     [SerializeField] private bool isAttacking;
-    [SerializeField] private int currentAttack=-1;
+    [SerializeField] private int currentAttackindex=0;
+    [SerializeField] private AttackDirections currentAttackDirections;
+    List<int> hurtPos = new List<int>();
+    [SerializeField] private List<LineRenderer> lasers = new List<LineRenderer>();
+    [SerializeField] private float maxWidth;
+    [SerializeField] private LeanTweenType animCurveIn;
+    [SerializeField] private LeanTweenType animCurveOut;
+    
+    
     
     
     public static Magocontroller Instance { get; private set; }
@@ -27,26 +35,74 @@ public class Magocontroller : BeatReciever
 
     public override void PreBeatAction()
     {
-        currentAttack += 1;
+        currentAttackindex += 1;
+        GenerateAttack();
         base.PreBeatAction();
     }
 
     public override void BeatAction()
     {
-        AttackDirections attackDirections = LevelController.Instance.attackSet.attacks[currentAttack];
-        //Encender Lasers
+       SpawnLasers(); 
     }
+    
 
     public override void PostBeatAction()
     {
-        
-        //Apagar Lasers
-        
-        //PlayerController.Instance.TryHurtPlayer();
+
+    }
+
+    public void GenerateAttack()
+    {
+        hurtPos = new List<int>();
+        currentAttackDirections = LevelController.Instance.attackSet.attacks[currentAttackindex];
+        switch (currentAttackDirections)
+        {
+            case AttackDirections.Left:
+                hurtPos.Add(0);
+                break;
+            case AttackDirections.Mid:
+                hurtPos.Add(1);
+                break;
+            case AttackDirections.Right:
+                hurtPos.Add(2);
+                break;
+            case AttackDirections.Left_Mid:
+                hurtPos.Add(0);
+                hurtPos.Add(1);
+                break;
+            case AttackDirections.Right_Mid:
+                hurtPos.Add(1);
+                hurtPos.Add(2);
+                break;
+            case AttackDirections.Left_Right:
+                hurtPos.Add(0);
+                hurtPos.Add(2);
+                break;
+        }
+    }
+
+    public void SpawnLasers()
+    {
+        foreach (int laserValue in hurtPos)
+        {
+            lasers[laserValue].widthMultiplier = 0f;
+            LeanTween.value(gameObject, (float x) => { lasers[laserValue].widthMultiplier = x; }, 0f, maxWidth,
+                BeatManager.Instance.bpmDuration / 2 * 0.7f).setEase(animCurveIn).setOnComplete(() =>
+            {
+                LeanTween.value(gameObject, (float x) => { lasers[laserValue].widthMultiplier = x; }, maxWidth, 0f,
+                    BeatManager.Instance.bpmDuration / 2 * 0.7f).setEase(animCurveOut);
+                PlayerController.Instance.TryHurtPlayer(laserValue);
+            });
+        }
     }
 
     public void ResetMago()
     {
-        currentAttack = -1;
+        currentAttackindex = -1;
+        foreach (LineRenderer laser in lasers)
+        {
+            if(LeanTween.isTweening(laser.gameObject)) LeanTween.cancel(laser.gameObject);
+            //laser.widthMultiplier = 0;
+        }
     }
 }

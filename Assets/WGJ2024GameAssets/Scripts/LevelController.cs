@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -12,11 +13,14 @@ public class LevelController : MonoBehaviour
     
     public static UnityAction OnPauseEvent;
     public static UnityAction OnPlayEvent;
+
+    [SerializeField] private string creditScene;
     
     [Header("GameSettings")]
     public Vector3 distanceVector;
     private Vector3 playerInitialPosition;
     public float stepDistance;
+    
     
     public static LevelController Instance { get; private set; }
 
@@ -45,9 +49,16 @@ public class LevelController : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Here");
+        //LeanTween.cancelAll();
+        Magocontroller.Instance.ResetMago();
         PlayerController.Instance.ResetPlayer(playerInitialPosition);
         BeatManager.Instance.PlaySong();
+    }
+
+    public void EndGame()
+    {
+        BeatManager.Instance.StopSong();
+        SceneManager.LoadScene(creditScene);
     }
     
 }

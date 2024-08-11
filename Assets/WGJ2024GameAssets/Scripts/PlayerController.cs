@@ -112,4 +112,18 @@ public class PlayerController : BeatReciever
             reciveInput = false;
         }
     }
+
+    public void TryHurtPlayer(int damagePos)
+    {
+        if (currentCarril == damagePos)
+        {
+            HurtPlayer();
+        }
+    }
+
+    private void HurtPlayer()
+    {
+        //
+        LevelController.Instance.StartGame();
+    }
 }
