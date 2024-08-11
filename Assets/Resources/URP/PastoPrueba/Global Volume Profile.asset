@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   master:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
       <length>k__BackingField: 2
       m_Loop: 0
@@ -24,10 +24,10 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0
+          time: 0.021926397
           value: 0
-          inSlope: 1
-          outSlope: 1
+          inSlope: 0.41579127
+          outSlope: 0.41579127
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -35,8 +35,8 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
-          outSlope: 1
+          inSlope: 0.44896758
+          outSlope: 0.44896758
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
   green:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
       <length>k__BackingField: 2
       m_Loop: 0
@@ -87,9 +87,9 @@ MonoBehaviour:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 1
-          outSlope: 1
+          value: 0.027350247
+          inSlope: 0.517005
+          outSlope: 0.517005
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
-          outSlope: 1
+          inSlope: 0.55172414
+          outSlope: 0.55172414
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
   blue:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
       <length>k__BackingField: 2
       m_Loop: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 1
-          outSlope: 1
+          inSlope: 1.163378
+          outSlope: 1.163378
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
-          outSlope: 1
+          inSlope: 1.047946
+          outSlope: 1.047946
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.7662619, y: 0.78940976, z: 1, w: 0.045649026}
   midtones:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -241,16 +241,16 @@ MonoBehaviour:
     m_Value: 0
   contrast:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: -27
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 1, g: 0.9835483, b: 0.8962264, a: 1}
   hueShift:
     m_OverrideState: 1
-    m_Value: -9
+    m_Value: 30
   saturation:
     m_OverrideState: 1
-    m_Value: 27
+    m_Value: 43
 --- !u!114 &-3956709444709761419
 MonoBehaviour:
   m_ObjectHideFlags: 3
