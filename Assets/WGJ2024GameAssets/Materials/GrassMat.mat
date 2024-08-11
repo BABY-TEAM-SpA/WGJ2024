@@ -108,33 +108,35 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HeightBlend: 5.81
+    - _HeightBlend: 0.1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.5
+    - _Smoothness: -0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _TerrainOffset: 0
-    - _TerrainSize: 50.4
+    - _TerrainSize: 20
     - _USETERRAINCOLOR: 1
+    - _WindIntensity: 0.15
+    - _WindSpeed: 0.1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.45179722, g: 0.8490566, b: 0.30598077, a: 1}
-    - _BottomColor: {r: 0.37058002, g: 0.7509433, b: 0.11193298, a: 0}
+    - _BottomColor: {r: 0.8784314, g: 0.12818098, b: 0, a: 0}
     - _Color: {r: 0.3771344, g: 0.6754716, b: 0.2689141, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FarColor: {r: 0.6452829, g: 0.115663804, b: 0.270042, a: 0}
-    - _NearColor: {r: 0.85174054, g: 0.96981126, b: 0.19579206, a: 0}
-    - _NearFarRange: {r: 3.55, g: 25, b: 0, a: 0}
-    - _ShadowColor: {r: 1, g: 0.010309283, b: 0, a: 0}
+    - _FarColor: {r: 0.7735849, g: 0.69489944, b: 0.11530785, a: 1}
+    - _NearColor: {r: 0.5471698, g: 0.17954215, b: 0.15176219, a: 0}
+    - _NearFarRange: {r: 1.8, g: 2.24, b: 0, a: 0}
+    - _ShadowColor: {r: 0.12871572, g: 0.7056604, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &812951253945927418
