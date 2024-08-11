@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerController : BeatReciever
 {
+    [SerializeField] private bool movePlayerInPostBeat;
     public bool reciveInput=false;
     private bool inputDetectedBeforeCheck = false; 
     public int inputRegist;
@@ -63,13 +64,22 @@ public class PlayerController : BeatReciever
     public override void BeatAction()
     {
         PlayerMoveForward();
+        if (!movePlayerInPostBeat)
+        {
+            PlayerMoveSide();
+            inputRegist = 0;
+            reciveInput = false;
+        }
     }
 
     public override void PostBeatAction()
     {
-        PlayerMoveSide();
-        inputRegist = 0;
-        reciveInput = false;
+        if (movePlayerInPostBeat)
+        {
+            PlayerMoveSide();
+            inputRegist = 0;
+            reciveInput = false;
+        }
     }
 
     public void PlayerMoveForward()
