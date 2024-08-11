@@ -103,7 +103,7 @@ public class MainMenu : MonoBehaviour
     {
         if (_creditsWindow != null)
         {
-            _creditsWindow.visible = false;
+            _creditsWindow.style.display = DisplayStyle.None;
         }
     }
 
