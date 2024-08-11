@@ -45,7 +45,8 @@ public class LevelController : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Here");
+        //LeanTween.cancelAll();
+        Magocontroller.Instance.ResetMago();
         PlayerController.Instance.ResetPlayer(playerInitialPosition);
         BeatManager.Instance.PlaySong();
     }

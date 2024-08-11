@@ -9,7 +9,8 @@ public enum AttackDirections
     Right,      //Ha
     Left_Mid,   //Slash
     Right_Mid,  //Slash
-    Left_Right //Take
+    Left_Right, //Take
+    None
 }
 
 [CreateAssetMenu(fileName = "Attacks", menuName = "ScriptableObjects/AtaquesMago", order = 1)]
