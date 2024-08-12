@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/WGJ2024GameAssets/UI/MainMenu/Menu.uss?fileID=7433441132597879392&amp;guid=21c552d627334e449b60a2503a4eb4ab&amp;type=3#Menu" />
+    <Style src="project://database/Assets/WGJ2024GameAssets/UI/PauseMenu/PauseMenu.uss?fileID=7433441132597879392&amp;guid=a891f3be64419ba4097e44042006f8fd&amp;type=3#PauseMenu" />
+    <ui:VisualElement name="PauseWindow" class="window" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/WGJ2024GameAssets/Images/UI/MenuPausamenupausa.png?fileID=2800000&amp;guid=04d712d18df001f46be81ee02947edfd&amp;type=3#MenuPausamenupausa&quot;); display: none; -unity-background-scale-mode: scale-to-fit; flex-direction: row; padding-top: 195px; padding-bottom: 205px; padding-right: 230px; padding-left: 242px;">
+        <ui:VisualElement name="PauseLeft" style="flex-grow: 0; flex-shrink: 0; flex-basis: 50%; margin-right: 0; padding-right: 75px;">
+            <ui:VisualElement style="flex-grow: 1; margin-left: 0; margin-top: 0; margin-bottom: 0; margin-right: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="PauseRight" style="flex-grow: 0; flex-shrink: 0; flex-basis: 50%; margin-left: 0; padding-left: 52px;">
+            <ui:VisualElement name="VisualElement" style="flex-grow: 1; margin-top: 0; margin-bottom: 0; margin-right: 0; margin-left: 0;">
+                <ui:VisualElement style="flex-grow: 1;">
+                    <ui:Button text="RESUME" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ResumeButton" class="button font-stylized" style="margin-bottom: 109px;" />
+                    <ui:Slider label="VOLUME" high-value="100" name="VolumeSlider" class="font-stylized" style="flex-direction: column; -unity-text-align: upper-center;" />
+                </ui:VisualElement>
+                <ui:Button text="EXIT" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ExitButton" class="button font-stylized" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

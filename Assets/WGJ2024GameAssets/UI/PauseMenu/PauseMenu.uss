@@ -1,0 +1,6 @@
+.button {
+    color: rgb(65, 65, 65);
+}
+
+Slider:focus {
+}

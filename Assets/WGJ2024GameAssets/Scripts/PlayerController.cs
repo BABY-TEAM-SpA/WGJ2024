@@ -66,7 +66,7 @@ public class PlayerController : BeatReciever
     }
 
     public override void PostBeatAction()
-    {
+    { 
         PlayerMoveSide();
         inputRegist = 0;
         reciveInput = false;

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/WGJ2024GameAssets/Scenes/MainMenu.unity
+    guid: 61981ce87bff54b49a1ca4242a1f1769
+  - enabled: 1
     path: Assets/WGJ2024GameAssets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1

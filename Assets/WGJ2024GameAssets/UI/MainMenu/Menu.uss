@@ -1,0 +1,31 @@
+.button {
+    opacity: 1;
+    visibility: visible;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    background-image: url("project://database/Assets/WGJ2024GameAssets/Images/UI/HoverInicio.png?fileID=2800000&guid=158d1dd7627daef43a732d85eecd86db&type=3#HoverInicio");
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    color: rgb(208, 208, 208);
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-scale-mode: scale-to-fit;
+    transition-property: -unity-background-image-tint-color, -unity-font-style;
+    transition-duration: 200ms, 200ms;
+    margin-bottom: 13px;
+}
+
+.layout {
+}
+
+.font-stylized {
+    -unity-font: url("project://database/Assets/WGJ2024GameAssets/Fonts/PermanentMarker-Regular.ttf?fileID=12800000&guid=27b396d1cacde26488b9e294edfb5624&type=3#PermanentMarker-Regular");
+    -unity-font-definition: initial;
+    font-size: 55px;
+}
+
+.button.font-stylized:hover {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 43.1px rgb(180, 53, 175);
+}
