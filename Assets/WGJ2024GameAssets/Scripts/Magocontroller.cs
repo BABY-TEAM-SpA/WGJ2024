@@ -53,32 +53,40 @@ public class Magocontroller : BeatReciever
 
     public void GenerateAttack()
     {
-        hurtPos = new List<int>();
-        currentAttackDirections = LevelController.Instance.attackSet.attacks[currentAttackindex];
-        switch (currentAttackDirections)
+        if (currentAttackindex >= LevelController.Instance.attackSet.attacks.Count)
         {
-            case AttackDirections.Left:
-                hurtPos.Add(0);
-                break;
-            case AttackDirections.Mid:
-                hurtPos.Add(1);
-                break;
-            case AttackDirections.Right:
-                hurtPos.Add(2);
-                break;
-            case AttackDirections.Left_Mid:
-                hurtPos.Add(0);
-                hurtPos.Add(1);
-                break;
-            case AttackDirections.Right_Mid:
-                hurtPos.Add(1);
-                hurtPos.Add(2);
-                break;
-            case AttackDirections.Left_Right:
-                hurtPos.Add(0);
-                hurtPos.Add(2);
-                break;
+            
         }
+        else
+        {
+            hurtPos = new List<int>();
+            currentAttackDirections = LevelController.Instance.attackSet.attacks[currentAttackindex];
+            switch (currentAttackDirections)
+            {
+                case AttackDirections.Left:
+                    hurtPos.Add(0);
+                    break;
+                case AttackDirections.Mid:
+                    hurtPos.Add(1);
+                    break;
+                case AttackDirections.Right:
+                    hurtPos.Add(2);
+                    break;
+                case AttackDirections.Left_Mid:
+                    hurtPos.Add(0);
+                    hurtPos.Add(1);
+                    break;
+                case AttackDirections.Right_Mid:
+                    hurtPos.Add(1);
+                    hurtPos.Add(2);
+                    break;
+                case AttackDirections.Left_Right:
+                    hurtPos.Add(0);
+                    hurtPos.Add(2);
+                    break;
+            } 
+        }
+        
     }
 
     public void SpawnLasers()
